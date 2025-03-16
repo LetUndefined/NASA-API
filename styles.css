@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-optical-sizing: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  flex-direction: column;
+}
+
+.container p {
+  margin-top: 0.5rem;
+}
+
+.data-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+button {
+  padding: 1rem 2rem;
+  margin: 1rem;
+}
+
+.temp-container {
+  background-color: grey;
+  padding: 1rem;
+}
+
+.temperature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#samplesAT,
+#samplesHWS {
+  text-decoration: underline;
+}
+.wind-container {
+  background-color: grey;
+  padding: 1rem;
+}
+
+.wind {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}

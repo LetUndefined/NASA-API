@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Big+Shoulders:opsz,wght@10..72,100..900&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Spicy+Rice&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mars Data</h1>
+      <p>API call on Mars Data, Press the Get Data button to see current Mars data</p>
+      <p id="date">Current Day:</p>
+      <p id="season">Current Season:</p>
+    </div>
+    <div class="temp-container">
+      <div class="temperature">
+        <h5 id="samplesAT">Recorded Samples from current Sol:</h5>
+        <p id="mx-temp">Maximum Temperature on Mars is:</p>
+        <p id="mn-temp">Minimum Temperature on Mars is:</p>
+        <p id="av-temp">Average Temperature on Mars is:</p>
+      </div>
+    </div>
+    <div class="wind-container">
+      <div class="wind">
+        <h5 id="samplesHWS">Recorded Samples from current Sol:</h5>
+        <p id="mx-speed">Maximum Windspeed on Mars is:</p>
+        <p id="mn-speed">Minimum Windspeed on Mars is:</p>
+        <p id="av-speed">Average Windspeed on Mars is:</p>
+      </div>
+    </div>
+    <div class="data-btn-container">
+      <button id="previous" style="display: none">Previous</button>
+      <button id="refresh">Get Data</button>
+      <button id="next" style="display: none">Next</button>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
