@@ -2,10 +2,12 @@ const apiKey = "https://api.nasa.gov/insight_weather/?api_key=5S2JU8jccSswXGHrNc
 
 const refresh = document.querySelector("#refresh");
 const previous = document.querySelector("#previous");
+const next = document.querySelector("#next");
 
 let solKeys = [];
 let currentIndex = 0;
 let weatherData = {};
+let tracker = 0;
 
 refresh.addEventListener("click", () => {
   fetch(apiKey)
@@ -19,6 +21,7 @@ refresh.addEventListener("click", () => {
     .then((data) => {
       solKeys = data.sol_keys;
       currentIndex = solKeys[solKeys.length - 1];
+      tracker = solKeys.length;
       weatherData = data;
 
       updatedData(data, currentIndex);
@@ -58,17 +61,27 @@ function updatedData(data, solIndex) {
   minSpeed.textContent = `Minimum Windspeed on Mars is: ${weather.HWS.mn} MPH`;
   avgSpeed.textContent = `Average Windspeed on Mars is: ${weather.HWS.av} MPH`;
 
-  previous.style.display = "block";
+  tracker === 1 ? (previous.style.display = "none") : (previous.style.display = "block");
+  tracker >= solKeys.length ? (next.style.display = "none") : (next.style.display = "block");
+
+  previous.addEventListener("click", () => {
+    next.style.display = "block";
+  });
+
+  console.log(tracker);
 }
 
 function previousDay() {
-  if (currentIndex === 0) {
-    previous.style.display = "hidden";
-  } else {
-    currentIndex--;
-    updatedData(weatherData, currentIndex);
-  }
+  tracker--;
+  currentIndex--;
+  updatedData(weatherData, currentIndex);
+}
+
+function nextDay() {
+  tracker++;
+  currentIndex++;
+  updatedData(weatherData, currentIndex);
 }
 
 previous.addEventListener("click", previousDay);
-refresh.addEventListener("click", updatedData);
+next.addEventListener("click", nextDay);
